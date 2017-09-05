@@ -13,13 +13,19 @@ class ViewController: UIViewController {
     //connect new label from main storyboard
     @IBOutlet weak var Label1: UILabel!
     //var lastLabel1Text= Label1.text;
+    
+    //connect new label Advice from main storyboard
+    @IBOutlet weak var Label_Advice: UILabel!
+    
     //connect new button from main storybord
     @IBOutlet weak var Button1: UIButton!
     //
+    var advices = AdviceServices()
     @IBAction func CountTapsOnButton1(_ sender: Any) {
         counter+=1;
-        //Label1.text = lastLabel1Text.appending(" \(counter)");
-        Label1.text = "Taped  \(counter) times";
+        Label1.text = "Taped  \(counter) times"
+        Label_Advice.text = "\(advices.randomAdvice().text)"
+
     }
     
     override func viewDidLoad() {
